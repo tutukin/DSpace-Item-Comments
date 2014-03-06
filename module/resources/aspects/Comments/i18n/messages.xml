@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<catalogue xml:lang="en"
+	xmlns:i18n="http://apache.org/cocoon/i18n/2.1"
+	xmlns="http://apache.org/cocoon/i18n/2.1">
+	
+	<message key="xmlui.comments.head">Comments</message>
+	<message key="xmlui.comments.commentform.head">Add comment</message>
+	<message key="xmlui.comments.commentform.para1">Add your comment</message>
+	<message key="xmlui.comments.commentform.email">e-mail:</message>
+	<message key="xmlui.comments.commentform.email_help">enter valid email adress</message>
+	<message key="xmlui.comments.commentform.comment">Your comment</message>
+	<message key="xmlui.comments.commentform.submit">Submit</message>
+	
+	<message key="xmlui.comments.commentform.forbidden">Action is forbidden</message>
+	<message key="xmlui.comments.commentform.specify_email">Email is required</message>
+	<message key="xmlui.comments.commentform.specify_comment">Comment is required</message>
+	
+</catalogue>

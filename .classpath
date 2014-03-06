@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="module/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/lib/dspace-api-3.2.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/dspace-xmlui-3.2-classes.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-core-2.2.0.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-pipeline-components-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-pipeline-impl-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-pipeline-api-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-sitemap-components-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-sitemap-impl-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-util-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/avalon-framework-api-4.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-xml-api-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/excalibur-pool-api-2.2.1.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/excalibur-xmlutil-2.2.1.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/excalibur-sourceresolve-2.2.3.jar"/>
+	<classpathentry kind="lib" path="/home/tut/workspaces/DSpace/DSpace/dspace/target/dspace-3.2-build/webapps/xmlui/WEB-INF/lib/cocoon-sitemap-api-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/usr/share/java/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="/usr/share/java/log4j-1.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

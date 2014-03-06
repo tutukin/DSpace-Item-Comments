@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+	<map:components>
+
+		<map:transformers>
+			<map:transformer name="Comments" src="ru.isuct.dspace.app.xmlui.aspect.comments.Comments"/>
+			<map:transformer name="CommentForm" src="ru.isuct.dspace.app.xmlui.aspect.comments.CommentForm"/>
+			<map:transformer name="ChooseForm" src="ru.isuct.dspace.app.xmlui.aspect.comments.ChooseForm"/>
+			<map:transformer name="AddCommentForm" src="ru.isuct.dspace.app.xmlui.aspect.comments.AddCommentForm"/>
+			<map:transformer name="AddCommentFormPassword" src="ru.isuct.dspace.app.xmlui.aspect.comments.AddCommentFormPassword"/>
+			<map:transformer name="AddCommentFormRegister" src="ru.isuct.dspace.app.xmlui.aspect.comments.AddCommentFormRegister"/>
+			<map:transformer name="AdminRegistrationRequests" src="ru.isuct.dspace.app.xmlui.aspect.comments.AdminRegistrationRequestsForm"/>
+			<map:transformer name="NotAuthorized" src="org.dspace.app.xmlui.aspect.administrative.NotAuthorized"/>
+			<map:transformer name="Navigation" src="ru.isuct.dspace.app.xmlui.aspect.comments.Navigation"/>
+		</map:transformers>
+		
+		<map:matchers/>
+		
+		<map:actions>
+			<map:action name="SendComment" src="ru.isuct.dspace.app.xmlui.aspect.comments.SendCommentAction"/>
+		</map:actions>
+		
+		<map:selectors>
+			<map:selector name="AuthenticatedSelector" src="org.dspace.app.xmlui.aspect.general.AuthenticatedSelector"/>
+		</map:selectors>
+
+    </map:components>
+    
+    
+    <map:flow language="javascript">
+		<map:script src="comments.js"/>
+	</map:flow>
+
+
+    <map:pipelines>
+    
+    	<map:pipeline>
+    		
+    		<map:match pattern="comments">
+    			<map:match type="request" pattern="comments-continue">
+    				<map:call continuation="{1}"/>
+    			</map:match>
+    			
+    			<map:match type="request" pattern="itemID">
+    				<map:call function="startAddComment"/>
+    			</map:match>
+    			
+    			<map:select type="AuthenticatedSelector">
+					<map:when test="eperson">
+    					<map:call function="startManageComments"/>
+    				</map:when>
+    			</map:select>
+    		</map:match>
+    		
+    		<map:generate />
+    		<map:transform type="Navigation"/>
+    		<map:match pattern="comments/**">
+    			<map:match type="WildcardParameterMatcher" pattern="true">
+    				<map:parameter name="parameter-name" value="notice"/>
+    				<map:parameter name="notice" value="{flow-attribute:notice}"/>
+    				<map:transform type="notice">
+    					<map:parameter name="outcome" value="{flow-attribute:outcome}"/>
+						<map:parameter name="header" value="{flow-attribute:header}"/>
+						<map:parameter name="message" value="{flow-attribute:message}"/>
+						<map:parameter name="characters" value="{flow-attribute:characters}"/>
+    				</map:transform>
+    			</map:match>
+    		</map:match>
+    		
+    		<map:transform type="Comments"/>
+    		
+    		<map:match pattern="comments/add">
+    			<map:transform type="AddCommentForm">
+    				<map:parameter name="errors" value="{flow-attribute:errors}"/>
+    				<map:parameter name="comment" value="{flow-attribute:comment}"/>
+    			</map:transform>
+    		</map:match>
+    		
+    		<map:match pattern="comments/password">
+    			<map:transform type="AddCommentFormPassword">
+    				<map:parameter name="errors" value="{flow-attribute:errors}"/>
+    				<map:parameter name="email" value="{flow-attribute:email}"/>
+    				<map:parameter name="comment" value="{flow-attribute:comment}"/>
+    			</map:transform>
+    		</map:match>
+    		
+    		<map:match pattern="comments/stash">
+    			<map:transform type="AddCommentFormRegister">
+    				<map:parameter name="errors" value="{flow-attribute:errors}"/>
+    				<map:parameter name="email" value="{flow-attribute:email}"/>
+    				<map:parameter name="comment" value="{flow-attribute:comment}"/>
+    			</map:transform>
+    		</map:match>
+    		
+    		<map:match pattern="comments/choose">
+    			<map:transform type="ChooseForm"/>
+    		</map:match>
+    		
+    		<map:select type="AuthenticatedSelector">
+				<map:when test="eperson">    		
+    				
+    				<map:match pattern="comments/admin">
+    					<map:transform type="AdminRegistrationRequests">
+    						<map:parameter name="request" value="{flow-attribute:request}"/>
+    					</map:transform>
+    				</map:match>
+    		
+    				
+    			</map:when>
+    		</map:select>
+    		
+    		<map:match pattern="comments/not-authorized">
+    			<map:transform type="NotAuthorized"/>
+    		</map:match>
+    		
+    		<map:serialize type="xml"/>
+    	</map:pipeline>
+    	
+    
+    </map:pipelines>
+</map:sitemap>

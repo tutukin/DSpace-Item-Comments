@@ -1,0 +1,8 @@
+#!/bin/bash
+
+WEB_INF=/home/dspace/webapps/xmlui/WEB-INF/classes/aspects/Comments
+RESOURCES=/home/tut/workspaces/DSpace/DSpace-Item-Comments/module/resources/aspects/Comments
+
+sudo cp -R $RESOURCES/* $WEB_INF/
+sudo chown -R tomcat7:tomcat7 $WEB_INF
+sudo service tomcat7 restart
