@@ -12,19 +12,19 @@ import org.dspace.app.xmlui.cocoon.AbstractDSpaceTransformer;
  *
  */
 public class AbstractCommentTransformer extends AbstractDSpaceTransformer {
-	public ArrayList<String> getErrorList(String sErrors) {
-		ArrayList<String> errors = new ArrayList<String>();
-		
-		if ( ! "".equals(sErrors) ) {
-			for (String e : sErrors.split(",") ) {
-				errors.add(e);
-			}
-		}
-		
-		return errors;
-	}
-	
-	public boolean isEmptyString( String s) {
-		return (s == null || "".equals(s));
-	}
+    public ArrayList<String> getErrorList(String sErrors) {
+        ArrayList<String> errors = new ArrayList<String>();
+
+        if ( ! "".equals(sErrors) ) {
+            for (String e : sErrors.split(",") ) {
+                errors.add(e);
+            }
+        }
+
+        return errors;
+    }
+
+    public boolean isEmptyString( String s) {
+        return (s == null || "".equals(s));
+    }
 }

@@ -5,7 +5,6 @@
 
 		<map:transformers>
 			<map:transformer name="Comments" src="ru.isuct.dspace.app.xmlui.aspect.comments.Comments"/>
-			<map:transformer name="CommentForm" src="ru.isuct.dspace.app.xmlui.aspect.comments.CommentForm"/>
 			<map:transformer name="ChooseForm" src="ru.isuct.dspace.app.xmlui.aspect.comments.ChooseForm"/>
 			<map:transformer name="AddCommentForm" src="ru.isuct.dspace.app.xmlui.aspect.comments.AddCommentForm"/>
 			<map:transformer name="AddCommentFormPassword" src="ru.isuct.dspace.app.xmlui.aspect.comments.AddCommentFormPassword"/>

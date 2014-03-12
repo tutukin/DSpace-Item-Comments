@@ -4,7 +4,6 @@ importClass(Packages.org.dspace.core.ConfigurationManager);
 importClass(Packages.org.dspace.core.Email);
 importClass(Packages.org.dspace.core.I18nUtil);
 importClass(Packages.org.dspace.app.xmlui.utils.ContextUtil);
-importClass(Packages.ru.isuct.dspace.app.xmlui.aspect.comments.FlowCommentsUtils);
 importClass(Packages.org.dspace.app.xmlui.utils.FlowscriptUtils);
 importClass(Packages.org.dspace.eperson.EPerson);
 importClass(Packages.ru.isuct.dspace.content.Comment);
