@@ -24,7 +24,7 @@ button. The comment immediately appears in the comments list attached to
 the item.
 
 Unauthenticated user will see a form with three buttons: «Have account»,
-«No account», and «Forgot password» (the latter is not implemented yet!).
+«No account», and «Forgot password».
 
 If the user presses «Have account», she will see the form that has the fields
 «Comment», «email» and «password». If the user provides correct email/password pair,
@@ -57,7 +57,11 @@ stashed comments are removed from the database.
 1. Copy `./module/resources/aspects/*` to `[dspace-src]/dspace/modules/xmlui/src/main/resources/aspects`
 2. Copy `./module/java/ru/isuct/*` to `[dspace-src]/dspace/modules/xmlui/src/main/java/ru/isuct`
 3. Copy `./config/*` to `[dspace-src]/dspace/config`
-4. Rebuild DSpace and update the instance
-5. apply `comments.sql` to your PostgreSQL database. (If you are using Oracle, then you have to translate
+4. Insert the aspect into [dspace-src]/dspace/config/xmlui.conf just before `</aspects>` tag:
+	
+	`<aspect name="Comments" path="resource://aspects/Comments/"/>`
+	
+5. Rebuild DSpace and update the instance
+6. apply `comments.sql` to your PostgreSQL database. (If you are using Oracle, then you have to translate
 `comments.sql` to the Oracle's SQL dialect).
 

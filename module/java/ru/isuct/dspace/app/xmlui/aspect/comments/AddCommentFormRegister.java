@@ -50,6 +50,9 @@ public class AddCommentFormRegister extends AbstractCommentTransformer {
 
     private static final Message T_empty_lastname =
             message("xmlui.Comments.addComment.last_name_empty");
+    
+    private static final Message T_cancel =
+            message("xmlui.Comments.addComment.cancel");
 
 
 
@@ -81,7 +84,7 @@ public class AddCommentFormRegister extends AbstractCommentTransformer {
         commentDiv.addPara( T_para1 );
 
         if ( errors.contains("email_exists") ) {
-            commentDiv.addPara().addHighlight("bold").addContent(T_email_exists + " ("+email+")");
+            commentDiv.addPara().addHighlight("bold").addContent(T_email_exists);
             email = null;
         }
 
@@ -124,7 +127,9 @@ public class AddCommentFormRegister extends AbstractCommentTransformer {
             emailItem.addError(T_empty_email);
         }
 
-        form.addItem().addButton("submit").setValue( T_submit );
+        Item submit = form.addItem();
+        submit.addButton("submit").setValue( T_submit );
+        submit.addButton("cancel").setValue( T_cancel );
 
         commentDiv.addHidden("comments-continue").setValue( knot.getId() );
             }

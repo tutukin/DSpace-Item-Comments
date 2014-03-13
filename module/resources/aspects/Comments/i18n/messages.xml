@@ -19,9 +19,10 @@
 	<message key="xmlui.Comments.addComment.label">Comment</message>
 	<message key="xmlui.Comments.addComment.submit">Submit</message>
 	<message key="xmlui.Comments.addComment.email">Email</message>
-	<message key="xmlui.Comments.addComment.password">Email</message>
+	<message key="xmlui.Comments.addComment.password">Password</message>
 	<message key="xmlui.Comments.addComment.first_name">First name</message>
 	<message key="xmlui.Comments.addComment.last_name">Last name</message>
+	<message key="xmlui.Comments.addComment.cancel">Cancel</message>
 	
 	<message key="xmlui.Comments.addComment.explain_simple">Please, enter your comment</message>
 	<message key="xmlui.Comments.addComment.explain_password">Add comment using an existing DSpace account</message>
@@ -34,6 +35,10 @@
 	<message key="xmlui.Comments.addComment.password_empty">Password should not be empty!</message>
 	<message key="xmlui.Comments.addComment.first_name_empty">First name is required!</message>
 	<message key="xmlui.Comments.addComment.last_name_empty">Last name is required!</message>
+	
+	<message key="xmlui.Comments.CommentStashed.head">Comment is stashed</message>
+	<message key="xmlui.Comments.CommentStashed.body">Your comment is stashed. It will be published after a system administrator review. Also you'll receive an invitation email, that allow you to create an account at this DSpace</message>
+	<message key="xmlui.Comments.CommentStashed.submit">OK</message>
 	
 	<message key="xmlui.Comments.adminRegistrationRequests.head">Registration requests</message>
 	<message key="xmlui.Comments.adminRegistrationRequests.explain_admin_requests">You can drop stashed comments, accept or decline requests for registration</message>

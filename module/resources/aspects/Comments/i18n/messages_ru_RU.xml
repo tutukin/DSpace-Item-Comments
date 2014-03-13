@@ -19,9 +19,10 @@
 	<message key="xmlui.Comments.addComment.label">Комментарий</message>
 	<message key="xmlui.Comments.addComment.submit">Отправить</message>
 	<message key="xmlui.Comments.addComment.email">Email</message>
-	<message key="xmlui.Comments.addComment.password">Email</message>
+	<message key="xmlui.Comments.addComment.password">Пароль</message>
 	<message key="xmlui.Comments.addComment.first_name">Имя</message>
 	<message key="xmlui.Comments.addComment.last_name">Фамилия</message>
+	<message key="xmlui.Comments.addComment.cancel">Отмена</message>
 	
 	<message key="xmlui.Comments.addComment.explain_simple">Пожалуйста, введите комментарий</message>
 	<message key="xmlui.Comments.addComment.explain_password">Введите комментарий, e-mail и пароль</message>
@@ -34,6 +35,10 @@
 	<message key="xmlui.Comments.addComment.password_empty">Укажите пароль!</message>
 	<message key="xmlui.Comments.addComment.first_name_empty">Введите Ваше имя!</message>
 	<message key="xmlui.Comments.addComment.last_name_empty">Введите Вашу фамилию!</message>
+	
+	<message key="xmlui.Comments.CommentStashed.head">Комментарий сохранен</message>
+	<message key="xmlui.Comments.CommentStashed.body">Ваш комментарий сохранен. После проверки он будет опубликован. Вы также получите пригласительное письмо на указанный Вами адрес электронной почты, которое позволит Вам создать постоянную учетную запись в цифровом архиве.</message>
+	<message key="xmlui.Comments.CommentStashed.submit">ОК</message>
 	
 	<message key="xmlui.Comments.adminRegistrationRequests.head">Запросы регистрации</message>
 	<message key="xmlui.Comments.adminRegistrationRequests.explain_admin_requests">Вы можете удалить комментарии, принять или отклонить запросы регистрации.</message>

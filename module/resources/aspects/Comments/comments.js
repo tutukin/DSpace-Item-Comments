@@ -40,12 +40,14 @@ function startAddComment () {
 // comments
 function startManageComments () {
 	assertAdministrator();
-	var result = {};
 	
-	var names, name, value;
+	var result = {};
 	
 	do {
 		cocoon.sendPageAndWait('comments/admin', result);
+		
+		result = {};
+		
 		if ( cocoon.request.get("invite_person") ) {
 			result = doInvitePerson( cocoon.request.getParameter("req_id") );
 		}
@@ -55,28 +57,12 @@ function startManageComments () {
 		else if ( cocoon.request.get("drop") ) {
 			result = doDropStashedComments( cocoon.request.getParameterValues("drop_stash") );
 		}
+		
 		result.stop = false;
-		result.request = _mk_req(cocoon.request);
+		
 	} while ( ! result.stop );
+	
 	return;
-}
-
-
-function _mk_req (req) {
-	var s = "",
-		names = req.getParameterNames(),
-		name, value;
-	
-	while ( names.hasMoreElements() ) {
-		name = names.nextElement();
-		value = cocoon.request.get(name);
-		s += name + " = " + value + ";\n"
-	}
-	
-	s+="serverName:serverPort = " + req.getServerName() + ":" + req.getServerPort() + "\n";
-	s+="remoteAddr = " + req.getRemoteAddr() + "\n";
-	s+="currentLocale = "+getDSContext().getCurrentLocale() + "\n";
-	return s;
 }
 
 function doInvitePerson (request_id) {
@@ -157,7 +143,7 @@ function doDeclinePerson (request_id) {
 
 function doDropStashedComments (stash_ids) {
 	var result;
-	if ( stash_ids === null ) return;
+	if ( stash_ids === null ) return outcomeFailure("Select stashed comments", "Select some of the stashed comments to drop");
 	if ( typeof stash_ids === 'string' ) stash_ids = [ stash_ids ];
 	if ( stash_ids instanceof Array ) {
 		stash_ids.forEach( function (sId) {
@@ -175,7 +161,8 @@ function doDropStashedComments (stash_ids) {
 
 
 function doChooseAuthMethod(itemID) {
-	var result = {};
+	var result = {},
+		url;
 	do {
 		cocoon.sendPageAndWait("comments/choose", result);
 		result = {};
@@ -186,7 +173,13 @@ function doChooseAuthMethod(itemID) {
 			result = doStashComment(itemID);
 		}
 		else if ( cocoon.request.get("forgot_password") ) {
-			result = outcomeFailure("TODO","TODO: forgotten password flow is not yet implemented!");
+			url = cocoon.request.getContextPath() + '/forgot';
+			cocoon.redirectTo(url, true);
+		    cocoon.exit();
+		}
+		else if ( cocoon.request.get("cancel") ) {
+			result = outcomeNeutralStop('Operation cancelled', 'Adding a comment is cancelled');
+			break;
 		}
 		else {
 			result = outcomeFailure("Unknown outcome", "Unknown outcome");
@@ -205,6 +198,7 @@ function doAddComment(itemID, eperson) {
 		
 		if ( cocoon.request.get("cancel") ) {
 			result = outcomeNeutralStop('Operation cancelled', 'Adding a comment is cancelled');
+			break;
 		}
 
 		comment = cocoon.request.get("comment");
@@ -231,6 +225,7 @@ function doAddCommentUsingPassword (itemID) {
 
 		if ( cocoon.request.get("cancel") ) {
 			result = outcomeNeutralStop('Operation cancelled', 'Adding a comment is cancelled');
+			break;
 		}
 
 		errors = checkNotEmpty(keys, cocoon.request);
@@ -269,6 +264,7 @@ function doStashComment (itemID) {
 
 		if ( cocoon.request.get("cancel") ) {
 			result = outcomeNeutralStop('Operation cancelled', 'Stashing a comment is cancelled');
+			break;
 		}
 
 		errors = checkNotEmpty(["email", "firstname", "lastname", "comment"], cocoon.request);
@@ -297,6 +293,8 @@ function doStashComment (itemID) {
 			copyParameters(cocoon.request, result, ["firstname", "lastname", "email", "comment"]);
 		}
 	} while( ! result.stop );
+	
+	cocoon.sendPageAndWait("comments/stashed", result);
 	
 	return result;
 }

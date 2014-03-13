@@ -6,6 +6,7 @@ package ru.isuct.dspace.app.xmlui.aspect.comments;
 import org.dspace.app.xmlui.wing.WingException;
 import org.dspace.app.xmlui.wing.element.Body;
 import org.dspace.app.xmlui.wing.element.Division;
+import org.dspace.app.xmlui.wing.element.Item;
 import org.dspace.app.xmlui.wing.element.List;
 import org.dspace.app.xmlui.wing.element.PageMeta;
 import org.dspace.app.xmlui.wing.element.TextArea;
@@ -31,6 +32,9 @@ public class AddCommentForm extends AbstractCommentTransformer {
 
     private static final Message T_comment_empty = 
             message("xmlui.Comments.addComment.comment_empty");
+    
+    private static final Message T_cancel =
+            message("xmlui.Comments.addComment.cancel");
 
 
 
@@ -62,7 +66,9 @@ public class AddCommentForm extends AbstractCommentTransformer {
             commentItem.addError(T_comment_empty);
         }
 
-        form.addItem().addButton("submit").setValue( T_submit );
+        Item submit = form.addItem(); 
+        submit.addButton("submit").setValue( T_submit );
+        submit.addButton("cancel").setValue( T_cancel );
 
         commentDiv.addHidden("comments-continue").setValue( knot.getId() );
             }

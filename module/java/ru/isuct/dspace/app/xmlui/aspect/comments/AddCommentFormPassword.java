@@ -8,6 +8,7 @@ import org.dspace.app.xmlui.wing.Message;
 import org.dspace.app.xmlui.wing.WingException;
 import org.dspace.app.xmlui.wing.element.Body;
 import org.dspace.app.xmlui.wing.element.Division;
+import org.dspace.app.xmlui.wing.element.Item;
 import org.dspace.app.xmlui.wing.element.List;
 import org.dspace.app.xmlui.wing.element.PageMeta;
 import org.dspace.app.xmlui.wing.element.Password;
@@ -20,13 +21,13 @@ public class AddCommentFormPassword extends AbstractCommentTransformer {
             message("xmlui.Comments.addComment.head");
 
     private static final Message T_para1 =
-            message("xmlui.Comments.addComment.addComment.explain_password");
+            message("xmlui.Comments.addComment.explain_password");
 
     private static final Message T_comment =
             message("xmlui.Comments.addComment.label");
 
     private static final Message T_email =
-            message("xmlui.Comments.addCommentPassword.email");
+            message("xmlui.Comments.addComment.email");
 
     private static final Message T_submit =
             message("xmlui.Comments.addComment.submit");
@@ -44,7 +45,10 @@ public class AddCommentFormPassword extends AbstractCommentTransformer {
             message("xmlui.Comments.addComment.email_not_found");
 
     private static final Message T_password =
-            message("xmlui.Comments.addComment.password");;
+            message("xmlui.Comments.addComment.password");
+    
+    private static final Message T_cancel =
+            message("xmlui.Comments.addComment.cancel");
 
 
 
@@ -109,7 +113,10 @@ public class AddCommentFormPassword extends AbstractCommentTransformer {
                     passwordItem.addError(T_password_empty);
                 }
 
-                form.addItem().addButton("submit").setValue( T_submit );
+                Item submit = form.addItem();
+                submit.addButton("submit").setValue( T_submit );
+                submit.addButton("cancel").setValue(T_cancel);
+                
                 commentDiv.addHidden("comments-continue").setValue( knot.getId() );
                     }
 

@@ -19,19 +19,22 @@ import org.dspace.app.xmlui.wing.element.PageMeta;
 public class ChooseForm extends AbstractDSpaceTransformer
 {
     private static final Message T_head =
-            message("xmlui.Comment.choose.head");
+            message("xmlui.Comments.choose.head");
 
     private static final Message T_para1 =
-            message("xmlui.Comment.choose.explain"); // "choose form explanations para1";
+            message("xmlui.Comments.choose.explain");
 
     private static final Message T_have_account =
-            message("xmlui.Comment.choose.have_account"); // "have account";
+            message("xmlui.Comments.choose.have_account");
 
     private static final Message T_no_account =
-            message("xmlui.Comment.choose.no_account"); // "no account";
+            message("xmlui.Comments.choose.no_account");
 
     private static final Message T_forgot_password =
-            message("xmlui.Comment.choose.forgot_password"); //"forgot password";
+            message("xmlui.Comments.choose.forgot_password");
+    
+    private static final Message T_cancel =
+            message("xmlui.Comments.addComment.cancel");
 
 
 
@@ -61,6 +64,7 @@ public class ChooseForm extends AbstractDSpaceTransformer
         submit.addButton("have_account").setValue(T_have_account);
         submit.addButton("no_account").setValue(T_no_account);
         submit.addButton("forgot_password").setValue(T_forgot_password);
+        submit.addButton("cancel").setValue(T_cancel);
 
         div.addHidden("comments-continue").setValue( knot.getId() );
             }
