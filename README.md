@@ -2,7 +2,11 @@
 
 Allow visitors to comment items in [DSpace](http://dspace.org)
 
-# About this module
+## Version
+
+0.0.2
+
+## About this module
 
 This is an experimental code that misses some important features. It also
 **can not be considered as secure**!
@@ -12,7 +16,7 @@ This is an experimental code that misses some important features. It also
 This module works with **3.x** version of [DSpace](http://dspace.org),
 XMLUI only. 
 
-## How does it work
+### How does it work
 
 At the bottom of the Item page one sees the list of comments, and the link
 «*Add a comment*». What happens when the user follows the link depends on
@@ -52,7 +56,7 @@ contains a reference to the form where the person may complete her registration.
 If Administrator chooses «Decline», the registration request along with all the associated
 stashed comments are removed from the database.
 
-# Installation
+## Installation
 
 1. Copy `./module/resources/aspects/*` to `[dspace-src]/dspace/modules/xmlui/src/main/resources/aspects`
 2. Copy `./module/java/ru/isuct/*` to `[dspace-src]/dspace/modules/xmlui/src/main/java/ru/isuct`
@@ -65,3 +69,11 @@ stashed comments are removed from the database.
 6. apply `comments.sql` to your PostgreSQL database. (If you are using Oracle, then you have to translate
 `comments.sql` to the Oracle's SQL dialect).
 
+
+## Changes
+
+See CHANGELOG.md
+
+## License
+
+See LICENSE.md
